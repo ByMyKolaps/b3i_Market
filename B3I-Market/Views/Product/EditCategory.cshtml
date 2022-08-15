@@ -1,0 +1,29 @@
+﻿@model DAL.Models.Category
+<div class="account_area" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+        <div class="row">
+            <div id="customer_details">
+                <div class="col-md-6">
+                    <div class="woocommerce-billing-fields create-account w-100">
+                        <form enctype="multipart/form-data" asp-controller="Product" asp-action="EditCategory" method="post">
+                            <h2>@Model.Name</h2>
+                            @if (TempData.ContainsKey("Success"))
+                            {
+                                <h3 style="text-align: center;">@TempData["Success"]</h3>
+                            }
+                            <input name="_categoryName" value="@Model.Name" type="hidden" />
+                            <p id="billing_company_field" class="form-row form-row-wide">
+                                <label class="" for="billing_company">Photo:</label>
+                                <input name="photo" type="file" accept=".png, .jpg, .jpeg, .gif" value="@Model.PhotoPath" placeholder="@Model.PhotoPath" class="input-text" required>
+                            </p>
+                            <button type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+
+
+    </div>
+</div>
